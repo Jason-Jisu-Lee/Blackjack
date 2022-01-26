@@ -4,8 +4,13 @@
   "description": "Blackjack",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:frontend": "npm --prefix ./frontend start",
+    "start": "npm run start:frontend"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "md5": "^2.3.0"
+  }
 }
