@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "./login.css";
 import md5 from "md5";
 
@@ -14,23 +15,19 @@ function Login() {
     const name = target.name;
 
     if (target.name === "password") {
-      document.getElementById(name).type = "password";
+      target.type = "password";
       value = md5(event.target.value);
     }
-
     setForm({
       [name]: value,
     });
-
-    document.getElementById(name).style.fontFamily = "Montserrat black";
+    target.style.fontFamily = "Montserrat black";
   };
-
   const handleFocus = (event) => {
     if (event.target.value === event.target.name) {
       event.target.value = "";
     }
   };
-
   const handleBlur = (event) => {
     if (event.target.value === "") {
       event.target.value = event.target.name;
@@ -69,9 +66,9 @@ function Login() {
           Log In
         </button>
       </form>
-      <a className="link" href="/signup">
+      <Link className="link" to="/signup">
         Sign Up
-      </a>
+      </Link>
     </div>
   );
 }
