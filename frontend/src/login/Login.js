@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import "./login.css";
 import md5 from "md5";
 
@@ -8,12 +8,11 @@ function Login() {
     username: "username",
     password: "password",
   });
-
+  
   const handleInputChange = (event) => {
     const target = event.target;
     let value = event.target.value;
     const name = target.name;
-
     if (target.name === "password") {
       target.type = "password";
       value = md5(event.target.value);
@@ -34,10 +33,16 @@ function Login() {
     }
   };
 
+  const history = useHistory();
+  const submitHandler = (event) => {
+    event.preventDefault();
+    history.push(`/play`);
+  };
+
   return (
     <div className="login">
       <h4>Welcome back</h4>
-      <form>
+      <form onSubmit={submitHandler}>
         <div className="text_area">
           <input
             type="text"

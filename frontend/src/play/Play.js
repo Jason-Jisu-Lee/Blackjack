@@ -1,12 +1,56 @@
-import React from "react";
-
+import React, { useState } from "react";
+import Player from "./Player";
+import Dealer from "./Dealer";
 
 function Play() {
-return (
+  const [playing, setPlaying] = useState(false);
+  const [betAmount, setBetAmount] = useState({
+    amount: 1,
+  });
+
+  const hitHandler = (event) => {
+    return null;
+  };
+  const standHandler = (event) => {
+    return null;
+  };
+
+  const active = (
     <div>
-        hello
+      <button onClick={hitHandler}>Hit</button>
+      <button onClick={standHandler}>Stand</button>
     </div>
-)
+  );
+
+  const betAmountHandler = (event) => {
+    setBetAmount(({ amount }) => ({
+      amount: amount + parseInt(event.target.value),
+    }));
+  };
+
+  const inactive = (
+    <div>
+      <button onClick={() => setPlaying(true)}>Bet</button>
+      <button onClick={betAmountHandler} value="1">
+        1
+      </button>
+      <button onClick={betAmountHandler} value="5">
+        5
+      </button>
+      <button onClick={betAmountHandler} value="20">
+        20
+      </button>
+    </div>
+  );
+
+  return (
+    <div>
+			<Dealer />
+			<Player />
+      <div>Bet Amount: {betAmount.amount}</div>
+      {playing === true ? active : inactive}
+    </div>
+  );
 }
 
-export default Play
+export default Play;
