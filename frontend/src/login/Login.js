@@ -38,7 +38,7 @@ function Login() {
     event.preventDefault();
     history.push(`/play`);
   };
-
+  
   return (
     <div className="login">
       <h4>Welcome, Player</h4>

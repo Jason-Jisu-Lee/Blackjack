@@ -1,14 +1,9 @@
-import React, {useState} from "react"
+import React, { Fragment } from "react";
 
 function Dealer() {
-const [player, setPlayer] = useState(null);
+  // const [dealer, setDealer] = useState(null);
 
-return (
-    <div>
-        dealer
-    </div>
-)
-
+  return <Fragment>dealer</Fragment>;
 }
 
-export default Dealer
+export default Dealer;

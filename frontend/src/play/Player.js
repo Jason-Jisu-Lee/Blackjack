@@ -1,14 +1,9 @@
-import React, {useState} from "react"
+import React, { Fragment } from "react";
 
 function Player() {
-const [player, setPlayer] = useState(null);
+  // const [player, setPlayer] = useState(null);
 
-return (
-    <div>
-        player
-    </div>
-)
-
+  return <Fragment>player</Fragment>;
 }
 
-export default Player
+export default Player;

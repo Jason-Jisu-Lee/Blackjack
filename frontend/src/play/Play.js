@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { Fragment, useState } from "react";
 import Player from "./Player";
 import Dealer from "./Dealer";
-import "./play.css"
+import "./play.css";
 
 function Play() {
   const [playing, setPlaying] = useState(false);
@@ -16,10 +16,6 @@ function Play() {
     return null;
   };
 
-  useEffect(() => {
-
-  }, playing)
-
   const active = (
     <div>
       <button onClick={hitHandler}>Hit</button>
@@ -33,9 +29,14 @@ function Play() {
     }));
   };
 
+  const playHandler = (event) => {
+    setPlaying(true);
+    
+  };
+
   const inactive = (
     <div>
-      <button onClick={() => setPlaying(true)}>Bet</button>
+      <button onClick={playHandler}>Bet</button>
       <button onClick={betAmountHandler} value="1">
         1
       </button>
@@ -49,12 +50,12 @@ function Play() {
   );
 
   return (
-    <div>
-			<Dealer />
-			<Player />
+    <Fragment>
+      <Dealer />
+      <Player />
       <div>Bet Amount: {betAmount.amount}</div>
       {playing === true ? active : inactive}
-    </div>
+    </Fragment>
   );
 }
 
