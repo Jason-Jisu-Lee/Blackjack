@@ -8,7 +8,7 @@ function Login() {
     username: "username",
     password: "password",
   });
-  
+
   const handleInputChange = (event) => {
     const target = event.target;
     let value = event.target.value;
@@ -41,7 +41,7 @@ function Login() {
 
   return (
     <div className="login">
-      <h4>Welcome back</h4>
+      <h4>Welcome, Player</h4>
       <form onSubmit={submitHandler}>
         <div className="text_area">
           <input
@@ -70,10 +70,10 @@ function Login() {
         <button type="submit" className="btn">
           Log In
         </button>
+        <Link className="link" to="/signup">
+          Sign Up
+        </Link>
       </form>
-      <Link className="link" to="/signup">
-        Sign Up
-      </Link>
     </div>
   );
 }

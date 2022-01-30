@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Player from "./Player";
 import Dealer from "./Dealer";
+import "./play.css"
 
 function Play() {
   const [playing, setPlaying] = useState(false);
@@ -14,6 +15,10 @@ function Play() {
   const standHandler = (event) => {
     return null;
   };
+
+  useEffect(() => {
+
+  }, playing)
 
   const active = (
     <div>
