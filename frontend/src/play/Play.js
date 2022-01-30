@@ -31,7 +31,6 @@ function Play() {
 
   const playHandler = (event) => {
     setPlaying(true);
-    
   };
 
   const inactive = (
@@ -51,8 +50,12 @@ function Play() {
 
   return (
     <Fragment>
-      <Dealer />
-      <Player />
+      <div>
+        <Dealer playing={playing} />
+      </div>
+      <div>
+        <Player playing={playing} />
+      </div>
       <div>Bet Amount: {betAmount.amount}</div>
       {playing === true ? active : inactive}
     </Fragment>
