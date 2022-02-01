@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-import "./login.css";
+import "../index.css"
 import md5 from "md5";
 
 function Login() {

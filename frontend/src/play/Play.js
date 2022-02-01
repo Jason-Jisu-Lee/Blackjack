@@ -1,7 +1,6 @@
 import React, { Fragment, useState } from "react";
 import Player from "./Player";
 import Dealer from "./Dealer";
-import "./play.css";
 
 function Play() {
   const [playing, setPlaying] = useState(false);
@@ -50,6 +49,7 @@ function Play() {
 
   return (
     <Fragment>
+      <h4>BLACKJACK PAYS 3 TO 2</h4>
       <div>
         <Dealer playing={playing} />
       </div>

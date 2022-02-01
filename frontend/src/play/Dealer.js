@@ -8,7 +8,7 @@ function Dealer({ playing }) {
     while (dealer.length < 2) {
       const generate = setTimeout(() => {
         setDealer((prevState) => [...prevState, cardGenerator()]);
-      }, 1000);
+      }, 3000);
       return () => generate;
     }
   }, [dealer]);

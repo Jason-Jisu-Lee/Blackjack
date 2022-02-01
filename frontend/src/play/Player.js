@@ -8,7 +8,7 @@ function Player({ playing }) {
     while (player.length < 2) {
       const generate = setTimeout(() => {
         setPlayer((prevState) => [...prevState, cardGenerator()]);
-      }, 1000);
+      }, 3000);
       return () => generate;
     }
   }, [player]);
