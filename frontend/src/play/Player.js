@@ -4,6 +4,7 @@ import cardGenerator from "../utils/cardGenerator";
 function Player({ playing }) {
   const [player, setPlayer] = useState([]);
 
+  // If the player is playing, deal hands to the player
   useEffect(() => {
     while (player.length < 2) {
       const generate = setTimeout(() => {
@@ -21,10 +22,6 @@ function Player({ playing }) {
       </div>
     </div>
   );
-
-  // If the player is playing, deal hands to the player
-  if (playing) {
-  }
 
   return (
     <Fragment>

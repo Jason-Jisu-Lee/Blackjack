@@ -4,6 +4,7 @@ import cardGenerator from "../utils/cardGenerator";
 function Dealer({ playing }) {
   const [dealer, setDealer] = useState([]);
 
+  // If the player is playing, deal hands to the dealer
   useEffect(() => {
     while (dealer.length < 2) {
       const generate = setTimeout(() => {
@@ -22,9 +23,7 @@ function Dealer({ playing }) {
     </div>
   );
 
-  // If the player is playing, deal hands to the dealer
-  if (playing) {
-  }
+  
 
   return (
     <Fragment>

@@ -7,6 +7,11 @@ function Play() {
   const [betAmount, setBetAmount] = useState({
     amount: 1,
   });
+  const [cash, setCash] = useState({
+    amount: 100,
+  });
+  const [hit, setHit] = useState(false);
+  const [stand, setStand] = useState(false);
 
   const hitHandler = (event) => {
     return null;
@@ -14,13 +19,6 @@ function Play() {
   const standHandler = (event) => {
     return null;
   };
-
-  const active = (
-    <div>
-      <button onClick={hitHandler}>Hit</button>
-      <button onClick={standHandler}>Stand</button>
-    </div>
-  );
 
   const betAmountHandler = (event) => {
     setBetAmount(({ amount }) => ({
@@ -31,6 +29,14 @@ function Play() {
   const playHandler = (event) => {
     setPlaying(true);
   };
+
+  // Display "Hit" and "Stand" button after the player makes the bet
+  const active = (
+    <div>
+      <button onClick={hitHandler}>Hit</button>
+      <button onClick={standHandler}>Stand</button>
+    </div>
+  );
 
   const inactive = (
     <div>
@@ -49,7 +55,12 @@ function Play() {
 
   return (
     <Fragment>
-      <h4>BLACKJACK PAYS 3 TO 2</h4>
+      <div className="container">
+        <div className="row">
+          <div className="col-6">{cash.amount}</div>
+          <h4 className="col-6">BLACKJACK PAYS 3 TO 2</h4>
+        </div>
+      </div>
       <div>
         <Dealer playing={playing} />
       </div>

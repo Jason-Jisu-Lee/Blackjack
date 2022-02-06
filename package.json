@@ -11,6 +11,7 @@
   "author": "Jason Lee",
   "license": "ISC",
   "dependencies": {
+    "bootstrap": "^3.4.1",
     "md5": "^2.3.0"
   }
 }
