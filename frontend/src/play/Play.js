@@ -37,7 +37,7 @@ function Play() {
       <button onClick={standHandler}>Stand</button>
     </div>
   );
-
+  // Display "Bet" button and buttons to raise the bet amount when the player is not playing
   const inactive = (
     <div>
       <button onClick={playHandler}>Bet</button>

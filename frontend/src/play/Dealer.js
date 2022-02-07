@@ -6,13 +6,15 @@ function Dealer({ playing }) {
 
   // If the player is playing, deal hands to the dealer
   useEffect(() => {
-    while (dealer.length < 2) {
-      const generate = setTimeout(() => {
-        setDealer((prevState) => [...prevState, cardGenerator()]);
-      }, 3000);
-      return () => generate;
+    if (playing) {
+      while (dealer.length < 2) {
+        const generate = setTimeout(() => {
+          setDealer((prevState) => [...prevState, cardGenerator()]);
+        }, 2000);
+        return () => generate;
+      }
     }
-  }, [dealer]);
+  }, [dealer, playing]);
 
   const dealerHand = (
     <div className="container">
@@ -22,8 +24,6 @@ function Dealer({ playing }) {
       </div>
     </div>
   );
-
-  
 
   return (
     <Fragment>

@@ -9,6 +9,7 @@ function Login() {
     password: "password",
   });
 
+  //Log in form input handler: Restore default value when out of focus and empty
   const handleInputChange = (event) => {
     const target = event.target;
     let value = event.target.value;
@@ -33,6 +34,7 @@ function Login() {
     }
   };
 
+  // Handle submit: If authenticated, go to /play page
   const history = useHistory();
   const submitHandler = (event) => {
     event.preventDefault();

@@ -6,11 +6,13 @@ function Player({ playing }) {
 
   // If the player is playing, deal hands to the player
   useEffect(() => {
-    while (player.length < 2) {
-      const generate = setTimeout(() => {
-        setPlayer((prevState) => [...prevState, cardGenerator()]);
-      }, 3000);
-      return () => generate;
+    if (playing) {
+      while (player.length < 2) {
+        const generate = setTimeout(() => {
+          setPlayer((prevState) => [...prevState, cardGenerator()]);
+        }, 3000);
+        return () => generate;
+      }
     }
   }, [player]);
 
