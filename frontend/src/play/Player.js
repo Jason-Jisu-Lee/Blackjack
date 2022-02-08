@@ -4,17 +4,17 @@ import cardGenerator from "../utils/cardGenerator";
 function Player({ playing }) {
   const [player, setPlayer] = useState([]);
 
-  // If the player is playing, deal hands to the player
+  // If the player is playing, deal cards to the player
   useEffect(() => {
     if (playing) {
       while (player.length < 2) {
         const generate = setTimeout(() => {
           setPlayer((prevState) => [...prevState, cardGenerator()]);
-        }, 3000);
+        }, 2000) // Deal each card after a delay to allow any animation to complete
         return () => generate;
       }
     }
-  }, [player]);
+  }, [player, playing]);
 
   const playerHand = (
     <div className="container">

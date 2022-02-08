@@ -1,75 +1,81 @@
 /*  Background ---------------- */
-body, html {
-    background: linear-gradient(142deg, #8ec9a0, #037e13);
-    width: 100%;
-    height: 100%;
-    text-align: center;
+body,
+html {
+  background: linear-gradient(142deg, #8ec9a0, #037e13);
+  width: 100%;
+  height: 100%;
+  text-align: center;
 }
 
-h4{
-    font-family: 'Segoe UI', bold;
-    font-size: 35px;
-    margin-top: 4rem;
-    margin-bottom: 2rem;
+h4 {
+  font-family: "Segoe UI", bold;
+  font-size: 35px;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
 }
 
-form{
-    display: inline-block;
-    align-items: center;
-    height: 270px;
-    width: 350px;
-    margin-bottom: 170px;
+form {
+  display: inline-block;
+  align-items: center;
+  height: 270px;
+  width: 350px;
+  margin-bottom: 170px;
 }
 
-.text_area{
-    align-content: center;
-    border-radius: 21px;
-    margin-bottom: 32px;
-    width: 100%;
-    height: 64px;
-    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2), 0 0 20px 0 rgba(0, 0, 0, 0.19);
+.text_area {
+  align-content: center;
+  border-radius: 21px;
+  margin-bottom: 32px;
+  width: 100%;
+  height: 64px;
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2), 0 0 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.text_input{
-    margin-top: 1.2rem;
-    font-family: 'Montserrat regular';
-    font-size: 20px;
-    border: none;
-    width: 80%;
+.text_input {
+  margin-top: 1.2rem;
+  font-family: "Montserrat regular";
+  font-size: 20px;
+  border: none;
+  width: 80%;
 }
 
-.btn{
-    margin-top: 28px;
-    margin-bottom: 45px;
-    width: 165px;
-    height: 60px;
-    border-radius: 30px;
-    background: #fa6153;
-    border: none;
-    font-family: 'Montserrat';
-    font-size: 20px;
-    color: #FFFFFF;
-    box-shadow: 4px 4px 8px 0 rgba(173, 123, 123, 0.76), 0 6px 20px 0 rgba(235, 135, 135, 0.924);
-    cursor: pointer;
+.btn {
+  margin-top: 28px;
+  margin-bottom: 45px;
+  width: 165px;
+  height: 60px;
+  border-radius: 30px;
+  background: #fa6153;
+  border: none;
+  font-family: "Montserrat";
+  font-size: 20px;
+  color: #ffffff;
+  box-shadow: 4px 4px 8px 0 rgba(173, 123, 123, 0.76),
+    0 6px 20px 0 rgba(235, 135, 135, 0.924);
+  cursor: pointer;
 }
 
-.login{
-    display: inline-block;
-    background: #FFFFFF;
-    width: 434px;
-    height: 550px;
-    margin-top: 3%;
-    padding-bottom: 0%;
-    margin-bottom: 0%;
-    border-radius: 21px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+.login {
+  display: inline-block;
+  background: #ffffff;
+  width: 434px;
+  height: 550px;
+  margin-top: 3%;
+  padding-bottom: 0%;
+  margin-bottom: 0%;
+  border-radius: 21px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.link{
-    color: #0E4579;
-    font-family: 'Montserrat light';
-    font-size: 18px;
-    cursor: pointer;
-    display: block;
-    text-decoration: none;
+.link {
+  color: #0e4579;
+  font-family: "Montserrat light";
+  font-size: 18px;
+  cursor: pointer;
+  display: block;
+  text-decoration: none;
+}
+
+.alignL {
+  text-align: left;
 }
