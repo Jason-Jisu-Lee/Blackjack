@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from "react";
 import Player from "./Player";
 import Dealer from "./Dealer";
-import "./Play.css"
+import "./Play.css";
 
 function Play() {
   const [playing, setPlaying] = useState(false);
@@ -33,7 +33,7 @@ function Play() {
 
   /**
    * Display "active" or "inactive" depending on whether the player is playing.
-   * 
+   *
    * For "active," Display "Hit" and "Stand" button after
    * the player makes the bet.
    * For "inactive," display "Bet" button and buttons to raise
@@ -62,23 +62,21 @@ function Play() {
 
   return (
     <Fragment>
-      <div className="container mb-3 pt-5">
-        <div className="row">
-          <div className="col-4">Cash in my pocket: {cash.amount}</div>
-          <h5 className="col-4">BLACKJACK PAYS 3 TO 2</h5>
+        <div className="container mb-3 pt-5">
+          <div className="row">
+            <div className="col-4">Cash in my pocket: {cash.amount}</div>
+            <h5 className="col-4">BLACKJACK PAYS 3 TO 2</h5>
+          </div>
         </div>
-      </div>
-      <div className="remark">
-        How lucky are you feeling today?
-      </div>
-      <div>
-        <Dealer playing={playing} />
-      </div>
-      <div className="player">
-        <Player playing={playing} />
-      </div>
-      <div>Bet Amount: {betAmount.amount}</div>
-      {playing === true ? active : inactive}
+        <div className="remark">How lucky are you feeling today?</div>
+        <div>
+          <Dealer playing={playing} />
+        </div>
+        <div className="player">
+          <Player playing={playing} />
+        </div>
+        <div>Bet Amount: {betAmount.amount}</div>
+        {playing === true ? active : inactive}
     </Fragment>
   );
 }
