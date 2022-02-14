@@ -1,20 +1,6 @@
-import React, { Fragment, useEffect, useState } from "react";
-import cardGenerator from "../utils/cardGenerator";
+import React, { Fragment } from "react";
 
-function Player({ playing }) {
-  const [player, setPlayer] = useState([]);
-
-  // If the player is playing, deal cards to the player
-  useEffect(() => {
-    if (playing) {
-      while (player.length < 2) {
-        const generate = setTimeout(() => {
-          setPlayer((prevState) => [...prevState, cardGenerator()]);
-        }, 2000) // Deal each card after a delay to allow any animation to complete
-        return () => generate;
-      }
-    }
-  }, [player, playing]);
+function Player({ playing, player }) {
 
   const playerHand = (
     <div className="container">

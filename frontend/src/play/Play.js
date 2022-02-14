@@ -1,6 +1,7 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import Player from "./Player";
 import Dealer from "./Dealer";
+import cardGenerator from "../utils/cardGenerator";
 import "./Play.css";
 
 function Play() {
@@ -8,12 +9,46 @@ function Play() {
   const [betAmount, setBetAmount] = useState({
     amount: 1,
   });
+  const [dealer, setDealer] = useState([]);
+  const [player, setPlayer] = useState([]);
   const [cash, setCash] = useState({
     amount: 100,
-  });
-  const [hit, setHit] = useState(false);
-  const [stand, setStand] = useState(false);
 
+
+  });
+
+
+/**
+ * 
+ *  If 'playing' is true,
+ *  deal Cards to the dealerand the player
+ * 
+ */
+// Deal cards to the dealer
+  useEffect(() => {
+    if (playing) {
+      while (dealer.length < 2) {
+        const generate = setTimeout(() => {
+          setDealer((prevState) => [...prevState, cardGenerator()]);
+        }, 1500) // Deal each card after a delay to allow the animation to complete
+        return () => generate;
+      }
+    }
+  }, [dealer, playing]);
+// Deal cards to the player
+  useEffect(() => {
+    if (playing) {
+      while (player.length < 2) {
+        const generate = setTimeout(() => {
+          setPlayer((prevState) => [...prevState, cardGenerator()]);
+        }, 1500) // Deal each card after a delay to allow the animation to complete
+        return () => generate;
+      }
+    }
+  }, [player, playing]);
+
+
+  // IMPLEMENT HIT/STAND BUTTONS
   const hitHandler = (event) => {
     return null;
   };
@@ -21,12 +56,13 @@ function Play() {
     return null;
   };
 
+  // Set the bet amount
   const betAmountHandler = (event) => {
     setBetAmount(({ amount }) => ({
       amount: amount + parseInt(event.target.value),
     }));
   };
-
+  // set 'playing' to true if the user makes the bet
   const playHandler = (event) => {
     setPlaying(true);
   };
@@ -70,10 +106,10 @@ function Play() {
         </div>
         <div className="remark">How lucky are you feeling today?</div>
         <div>
-          <Dealer playing={playing} />
+          <Dealer playing={playing} dealer={dealer}/>
         </div>
         <div className="player">
-          <Player playing={playing} />
+          <Player playing={playing} player={player}/>
         </div>
         <div>Bet Amount: {betAmount.amount}</div>
         {playing === true ? active : inactive}
