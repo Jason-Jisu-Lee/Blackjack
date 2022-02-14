@@ -1,20 +1,11 @@
-import React, { Fragment, useEffect, useState } from "react";
-import cardGenerator from "../utils/cardGenerator";
+import React, { Fragment, useState } from "react";
 
-function Dealer({ playing }) {
-  const [dealer, setDealer] = useState([]);
+function Dealer({ playing, dealer }) {
+  const [blackjack, setBlackjack] = useState(false)
 
-  // If the player is playing, deal cards to the dealer
-  useEffect(() => {
-    if (playing) {
-      while (dealer.length < 2) {
-        const generate = setTimeout(() => {
-          setDealer((prevState) => [...prevState, cardGenerator()]);
-        }, 2000) // Deal each card after a delay to allow any animation to complete
-        return () => generate;
-      }
-    }
-  }, [dealer, playing]);
+  if(dealer[0] + dealer[1] === 21) {
+    setBlackjack(true)
+  }
 
   const dealerHand = (
     <div className="container">
@@ -25,11 +16,18 @@ function Dealer({ playing }) {
     </div>
   );
 
+  if(blackjack) {
+    return (
+      <Fragment>
+        <div>The Dealer has BlackJack. Unfortunate.</div>
+      </Fragment>
+    )
+  } else {
   return (
     <Fragment>
       <div>{playing ? dealerHand : "Dealer"}</div>
     </Fragment>
-  );
+  )}
 }
 
 export default Dealer;
