@@ -4,6 +4,11 @@ import Login from "../login/Login";
 import Play from "../play/Play"
 import Signup from "../signup/Signup"
 
+/**
+ * Defines every path of the application.
+ * 
+ */
+
 function Routes() {
   return (
     <Switch>

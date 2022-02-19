@@ -3,8 +3,7 @@ import Routes from "./Routes"
 
 /**
  * Defines the main layout of the application.
- *
- * @returns {JSX.Element}
+ * 
  */
 function Layout() {
   return (
