@@ -23,18 +23,20 @@ function Play() {
         const generate = setTimeout(() => {
           setDealer((prevState) => [...prevState, cardGenerator()]);
           setPlayer((prevState) => [...prevState, cardGenerator()]);
-        }, 500); // Deal each card after a delay to allow the animation to complete
+        }, 800); // Deal each card after a delay to allow the animation to complete
         return () => generate;
       }
     }
   }, [dealer, playing]);
 
   // IMPLEMENT HIT/STAND BUTTONS
-  const hitHandler = (event) => {
+  const hitHandler = () => {
     return null;
   };
-  const standHandler = (event) => {
-    return null;
+  const standHandler = () => {
+    setPlaying(false)
+    setDealer([0])
+    setPlayer([0])
   };
 
   // Set the bet amount
@@ -43,8 +45,8 @@ function Play() {
       amount: amount + parseInt(event.target.value),
     }));
   };
-  // set 'playing' to true if the user makes the bet
-  const playHandler = (event) => {
+  // Set 'playing' to true if the user makes the bet
+  const playHandler = () => {
     setPlaying(true);
   };
 
@@ -80,7 +82,7 @@ function Play() {
       </div>
       <div className="remark">{message}</div>
       <div>
-        <Dealer playing={playing} dealer={dealer} />
+        <Dealer playing={playing} dealer={dealer} setDealer={setDealer}/>
       </div>
       <div className="player">
         <Player playing={playing} player={player} />

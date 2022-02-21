@@ -23,8 +23,8 @@ function Dealer({ playing, dealer }) {
       } else {
         setSum((s) => s + dealer[i]);
       }
-    };
-  }, [dealer]);
+    }
+  }, [dealer, playing]);
 
   return (
     <Fragment>

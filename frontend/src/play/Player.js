@@ -23,8 +23,8 @@ function Player({ playing, player }) {
       } else {
         setSum((s) => s + player[i]);
       }
-    };
-  }, [player]);
+    }
+  }, [player, playing]);
 
   return (
     <Fragment>
