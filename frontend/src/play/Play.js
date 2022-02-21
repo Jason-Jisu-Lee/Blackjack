@@ -5,6 +5,7 @@ import cardGenerator from "../utils/cardGenerator";
 import "./Play.css";
 
 function Play() {
+  const [message, setMessage] = useState("How lucky are you feeling today?");
   const [playing, setPlaying] = useState(false);
   const [betAmount, setBetAmount] = useState({
     amount: 1,
@@ -13,40 +14,20 @@ function Play() {
   const [player, setPlayer] = useState([]);
   const [cash, setCash] = useState({
     amount: 100,
-
-
   });
 
-
-/**
- * 
- *  If 'playing' is true,
- *  deal Cards to the dealerand the player
- * 
- */
-// Deal cards to the dealer
+  // Deal the first two cards if 'playing'
   useEffect(() => {
     if (playing) {
       while (dealer.length < 2) {
         const generate = setTimeout(() => {
           setDealer((prevState) => [...prevState, cardGenerator()]);
-        }, 1200) // Deal each card after a delay to allow the animation to complete
+          setPlayer((prevState) => [...prevState, cardGenerator()]);
+        }, 500); // Deal each card after a delay to allow the animation to complete
         return () => generate;
       }
     }
   }, [dealer, playing]);
-// Deal cards to the player
-  useEffect(() => {
-    if (playing) {
-      while (player.length < 2) {
-        const generate = setTimeout(() => {
-          setPlayer((prevState) => [...prevState, cardGenerator()]);
-        }, 1200) // Deal each card after a delay to allow the animation to complete
-        return () => generate;
-      }
-    }
-  }, [player, playing]);
-
 
   // IMPLEMENT HIT/STAND BUTTONS
   const hitHandler = (event) => {
@@ -67,14 +48,7 @@ function Play() {
     setPlaying(true);
   };
 
-  /**
-   * Display "active" or "inactive" depending on whether the player is playing.
-   *
-   * For "active," Display "Hit" and "Stand" button after
-   * the player makes the bet.
-   * For "inactive," display "Bet" button and buttons to raise
-   * the bet amount when the player is not playing
-   */
+  // Display "active" or "inactive" depending on whether the player is playing.
   const active = (
     <div>
       <button onClick={hitHandler}>Hit</button>
@@ -98,21 +72,21 @@ function Play() {
 
   return (
     <Fragment>
-        <div className="container mb-3 pt-5">
-          <div className="row">
-            <div className="col-4">Cash in my pocket: {cash.amount}</div>
-            <h5 className="col-4">BLACKJACK PAYS 3 TO 2</h5>
-          </div>
+      <div className="container mb-3 pt-5">
+        <div className="row">
+          <div className="col-4">Cash in my pocket: {cash.amount}</div>
+          <h5 className="col-4">BLACKJACK PAYS 3 TO 2</h5>
         </div>
-        <div className="remark">How lucky are you feeling today?</div>
-        <div>
-          <Dealer playing={playing} dealer={dealer}/>
-        </div>
-        <div className="player">
-          <Player playing={playing} player={player}/>
-        </div>
-        <div>Bet Amount: {betAmount.amount}</div>
-        {playing === true ? active : inactive}
+      </div>
+      <div className="remark">{message}</div>
+      <div>
+        <Dealer playing={playing} dealer={dealer} />
+      </div>
+      <div className="player">
+        <Player playing={playing} player={player} />
+      </div>
+      <div>Bet Amount: {betAmount.amount}</div>
+      {playing === true ? active : inactive}
     </Fragment>
   );
 }
