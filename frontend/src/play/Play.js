@@ -10,8 +10,8 @@ function Play() {
   const [betAmount, setBetAmount] = useState({
     amount: 1,
   });
-  const [dealer, setDealer] = useState([]);
-  const [player, setPlayer] = useState([]);
+  const [dealer, setDealer] = useState([0]);
+  const [player, setPlayer] = useState([0]);
   const [cash, setCash] = useState({
     amount: 100,
   });
@@ -19,7 +19,7 @@ function Play() {
   // Deal the first two cards if 'playing'
   useEffect(() => {
     if (playing) {
-      while (dealer.length < 2) {
+      while (dealer.length < 3) {
         const generate = setTimeout(() => {
           setDealer((prevState) => [...prevState, cardGenerator()]);
           setPlayer((prevState) => [...prevState, cardGenerator()]);

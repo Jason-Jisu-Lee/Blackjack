@@ -7,22 +7,23 @@ function Dealer({ playing, dealer }) {
     <div className="container">
       <div>Dealer</div>
       <div className="row justify-content-center">
-        <div className="col-2">{dealer[0]}</div>
         <div className="col-2">{dealer[1]}</div>
+        <div className="col-2">{dealer[2]}</div>
       </div>
     </div>
   );
 
   useEffect(() => {
+    setSum(0);
     for (let i = 0; i < dealer.length; i++) {
       if (dealer[i] === "A") {
-        setSum(sum + 11);
+        setSum((s) => s + 11);
       } else if (isNaN(dealer[i])) {
-        setSum(sum + 10);
+        setSum((s) => s + 10);
       } else {
-        setSum(sum + dealer[i]);
+        setSum((s) => s + dealer[i]);
       }
-    }
+    };
   }, [dealer]);
 
   return (
