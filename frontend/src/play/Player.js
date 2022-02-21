@@ -23,7 +23,7 @@ function Player({ playing, player }) {
           sum.current += player[i];
         }
       }
-  }, [player, sum.current]);
+  }, [player]);
 
   return (
     <Fragment>
