@@ -1,10 +1,9 @@
-import React, { Fragment, useState, useEffect } from "react";
+import React, { Fragment, useState, useEffect, useRef } from "react";
 
 function Player({ playing, player }) {
-  const [sum, setSum] = useState(0);
-
   const playerHand = (
     <div className="container">
+      <div>Player</div>
       <div className="row justify-content-center">
         <div className="col-2">{player[0]}</div>
         <div className="col-2">{player[1]}</div>
@@ -12,22 +11,24 @@ function Player({ playing, player }) {
     </div>
   );
 
+  const sum = useRef(0);
+
   useEffect(() => {
-    for (let i = 0; i < player.length; i++) {
-      if ((player[i] === "A")) {
-        setSum(sum + 11);
-      } else if (isNaN(player[i])) {
-        setSum(sum + 10);
-      } else {
-        setSum(sum + player[i]);
+      for (let i = 0; i < player.length; i++) {
+        if (player[i] === "A") {
+          sum.current += 11;
+        } else if (isNaN(player[i])) {
+          sum.current += 10;
+        } else {
+          sum.current += player[i];
+        }
       }
-    }
-  }, [player]);
+  }, [player, sum.current]);
 
   return (
     <Fragment>
       <div>{playing ? playerHand : "Player"}</div>
-      <div>{sum}</div>
+      <div>{sum.current === 0 ? null : sum.current}</div>
     </Fragment>
   );
 }

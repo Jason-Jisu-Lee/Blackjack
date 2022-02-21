@@ -5,6 +5,7 @@ function Dealer({ playing, dealer }) {
 
   const dealerHand = (
     <div className="container">
+      <div>Dealer</div>
       <div className="row justify-content-center">
         <div className="col-2">{dealer[0]}</div>
         <div className="col-2">{dealer[1]}</div>
@@ -14,7 +15,7 @@ function Dealer({ playing, dealer }) {
 
   useEffect(() => {
     for (let i = 0; i < dealer.length; i++) {
-      if ((dealer[i] === "A")) {
+      if (dealer[i] === "A") {
         setSum(sum + 11);
       } else if (isNaN(dealer[i])) {
         setSum(sum + 10);
@@ -27,7 +28,7 @@ function Dealer({ playing, dealer }) {
   return (
     <Fragment>
       <div>{playing ? dealerHand : "Dealer"}</div>
-      <div>{sum}</div>
+      <div>{sum === 0 ? null : sum}</div>
     </Fragment>
   );
 }
