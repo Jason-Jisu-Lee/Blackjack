@@ -18,6 +18,8 @@ function Play() {
     amount: 100,
   });
 
+  //TESTING -------------------------------------------------------------------------------------------
+
   // Deal the first two cards if 'playing'
   useEffect(() => {
     if (playing) {
