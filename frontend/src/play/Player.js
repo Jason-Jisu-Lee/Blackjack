@@ -3,12 +3,15 @@ import React, { Fragment, useState, useEffect } from "react";
 function Player({ playing, player }) {
   const [sum, setSum] = useState(0);
 
+  // Maps player's card array
+const currentHand = player.map((card, key) => <div key={key} className="col-2">{card}</div>).slice(1)
+
+  // Player's Hand
   const playerHand = (
     <div className="container">
       <div>Player</div>
       <div className="row justify-content-center">
-        <div className="col-2">{player[1]}</div>
-        <div className="col-2">{player[2]}</div>
+        {currentHand}
       </div>
     </div>
   );

@@ -3,12 +3,15 @@ import React, { Fragment, useState, useEffect } from "react";
 function Dealer({ playing, dealer }) {
   const [sum, setSum] = useState(0);
 
+  // Maps dealer's card array
+const currentHand = dealer.map((card, key) => <div key={key} className="col-2">{card}</div>).slice(1)
+
+  // Dealer's hand
   const dealerHand = (
     <div className="container">
       <div>Dealer</div>
       <div className="row justify-content-center">
-        <div className="col-2">{dealer[1]}</div>
-        <div className="col-2">{dealer[2]}</div>
+        {currentHand}
       </div>
     </div>
   );

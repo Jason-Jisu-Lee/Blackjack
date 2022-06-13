@@ -2,6 +2,8 @@ import React, { Fragment, useState, useEffect } from "react";
 import Player from "./Player";
 import Dealer from "./Dealer";
 import cardGenerator from "../utils/cardGenerator";
+import hitHandler from "../utils/hitHandler";
+import standHandler from "../utils/standHandler";
 import "./Play.css";
 
 function Play() {
@@ -29,16 +31,6 @@ function Play() {
     }
   }, [dealer, playing]);
 
-  // IMPLEMENT HIT/STAND BUTTONS
-  const hitHandler = () => {
-    return null;
-  };
-  const standHandler = () => {
-    setPlaying(false)
-    setDealer([0])
-    setPlayer([0])
-  };
-
   // Set the bet amount
   const betAmountHandler = (event) => {
     setBetAmount(({ amount }) => ({
@@ -53,8 +45,8 @@ function Play() {
   // Display "active" or "inactive" depending on whether the player is playing.
   const active = (
     <div>
-      <button onClick={hitHandler}>Hit</button>
-      <button onClick={standHandler}>Stand</button>
+      <button onClick={() => hitHandler({setPlayer})}>Hit</button>
+      <button onClick={() => standHandler({setPlaying, setDealer, setPlayer})}>Stand</button>
     </div>
   );
   const inactive = (
